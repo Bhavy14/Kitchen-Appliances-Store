@@ -1,0 +1,124 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #06b6d4, #9333ea);
+    padding: 100px 60px 20px; /* Added top padding to avoid touching navbar */
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+  }
+  
+  /* Smaller welcome section */
+  .welcome-section {
+    background: #06b6d4;
+    color: white;
+    text-align: center;
+    padding: 60px 50px;
+    flex: 0.4; /* Slightly smaller */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Wider form section */
+  .form-section {
+    padding: 40px;
+    flex: 0.6; /* Slightly bigger */
+  }
+  
+  h1, h2 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    border-color: #9333ea; /* Focus effect */
+    outline: none;
+  }
+  
+  button {
+    background: #9333ea;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background: #7c2de3;
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  a {
+    color: #9333ea;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive - Stack on smaller screens */
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+    }
+  
+    .welcome-section {
+      flex: 1;
+      padding: 30px;
+    }
+  
+    .form-section {
+      flex: 1;
+      padding: 30px;
+    }
+  }
+  

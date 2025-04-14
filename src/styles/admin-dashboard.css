@@ -1,0 +1,80 @@
+/* admin-dashboard.css */
+
+.admin-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+    
+  .sidebar {
+    width: 240px;
+    min-width: 240px;
+    background-color: #1f2937; /* Tailwind's gray-800 */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    position: relative;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .sidebar-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: none;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  /* Optional: prevent gray box when clicked */
+.sidebar-link:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .sidebar-link.active {
+    background-color: #374151; /* Tailwind's gray-700 */
+    color: #facc15; /* Tailwind's yellow-400 */
+  }  
+  
+  .sidebar-link:hover {
+    background-color: #374151; /* Tailwind's gray-700 */
+    color: #facc15; /* Tailwind's yellow-400 */
+  }
+  
+  .admin-main {
+    flex: 1;
+    background-color: #f3f4f6; /* Tailwind's gray-100 */
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  
+  .admin-content {
+    font-size: 1.2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
