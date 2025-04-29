@@ -7,6 +7,7 @@ const authRoutes = require("./routes/authRoutes"); // Authentication routes
 const usersRoutes = require("./routes/users"); // ✅ Users routes
 const productsRoutes = require("./routes/products"); // ✅ Products routes
 const ordersRoute = require('./routes/orders');
+const contactRoutes = require('./routes/contact');
 const dashboardRoutes = require('./routes/dashboard');
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes); // ✅ Mount users routes
 app.use("/api/products", productsRoutes); // ✅ Mount products routes
 app.use('/api/orders', ordersRoute);
+app.use('/api/contact', contactRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 // Default route

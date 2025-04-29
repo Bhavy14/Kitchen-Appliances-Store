@@ -1,0 +1,129 @@
+/* ContactUs.css */
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 2rem auto;
+    gap: 2rem;
+  }
+  
+  /* LEFT SIDE */
+  .contact-info {
+    flex: 1;
+    min-width: 320px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .info-section {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+  }
+  
+  .info-section:last-child {
+    border-bottom: none;
+  }
+  
+  .info-section h2 {
+    font-size: 1.4rem;
+    color: #1e90ff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info-section p {
+    margin: 0.25rem 0;
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .social-links a {
+    color: #1e90ff;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* RIGHT SIDE */
+  .contact-form {
+    flex: 1;
+    min-width: 320px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-form h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+    background: #fefefe;
+  }
+  
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: #1e90ff;
+  }
+  
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .contact-form button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0078d4;
+  }
+  
+  .form-status {
+    font-size: 0.95rem;
+    color: #28a745;
+    margin-top: 0.5rem;
+  }
+  

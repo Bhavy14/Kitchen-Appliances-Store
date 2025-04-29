@@ -1,0 +1,31 @@
+.user-orders-container {
+    margin: 20px;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th, .orders-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  

@@ -9,6 +9,8 @@ const Products = () => {
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [showCart, setShowCart] = useState(false); // ✅ Cart visibility
+  const [showModal, setShowModal] = useState(false); // Modal visibility
+  const [selectedProduct, setSelectedProduct] = useState(null); // Product details
   const history = useHistory();
 
   useEffect(() => {
@@ -33,8 +35,14 @@ const Products = () => {
     setCart([...cart, product]);
   };
 
-  const goToProductDetail = (id) => {
-    history.push(`/product/${id}`);
+  const goToProductDetail = (product) => {
+    setSelectedProduct(product);
+    setShowModal(true); // Show modal with product details
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedProduct(null);
   };
 
   const filteredProducts = products.filter((p) =>
@@ -79,7 +87,7 @@ const Products = () => {
                 src={product.image}
                 alt={product.name}
                 className="product-image"
-                onClick={() => goToProductDetail(product.id)}
+                onClick={() => goToProductDetail(product)}
                 onError={handleImageError}
               />
               <h3>{product.name}</h3>
@@ -99,6 +107,23 @@ const Products = () => {
           onClose={() => setShowCart(false)}
           onOrder={handleOrder}
         />
+      )}
+
+      {/* Product Detail Modal */}
+      {showModal && selectedProduct && (
+        <div className="product-modal-overlay" onClick={closeModal}>
+          <div className="product-details-modal" onClick={(e) => e.stopPropagation()}>
+            <span className="close-btn" onClick={closeModal}>×</span>
+            <img src={selectedProduct.image} alt={selectedProduct.name} className="modal-product-image" />
+            <h2>{selectedProduct.name}</h2>
+            <p>{selectedProduct.price} ₹</p>
+            <div className="product-description">
+              <h4>Description:</h4>
+              <p>{selectedProduct.description}</p>
+            </div>
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
       )}
     </div>
   );

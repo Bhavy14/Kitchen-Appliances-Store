@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const verifyToken = require('../middleware/verifyToken');
 
 // POST /api/orders - place a new order
 router.post('/', async (req, res) => {
@@ -36,5 +37,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/my', verifyToken, async (req, res) => {
+    try {
+      const userEmail = req.user.email; // Extract email from token
+      const result = await db.query(
+        'SELECT * FROM orders WHERE email = $1 ORDER BY id DESC',
+        [userEmail]
+      );
+      res.status(200).json(result.rows); // Return orders for the user
+    } catch (error) {
+      console.error('Error fetching user orders:', error);
+      res.status(500).json({ error: 'Failed to fetch your orders.' });
+    }
+  });
+  
 
 module.exports = router;

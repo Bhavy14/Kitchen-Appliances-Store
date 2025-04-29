@@ -1,9 +1,12 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'; // ✅ useHistory instead of useNavigate
 import '../styles/Home.css';
 import image2 from '../images/abot.jpeg';
 import FeaturedProducts from '../pages/FeaturedProducts'; // ✅ Updated import path
 
 const Home = () => {
+    const history = useHistory(); // ✅ Initialize history
+
     return (
         <div className="home-page">
             {/* Hero Section with animated letters */}
@@ -19,8 +22,18 @@ const Home = () => {
                         Discover the perfect tools to elevate your cooking experience. From sleek modern designs to timeless classics, we offer a wide range of high-quality kitchen appliances that cater to every chef's needs.
                     </p>
                     <div className="hero-cta">
-                        <button className="hero-btn">Shop Now</button>
-                        <button className="hero-btn-outline">Explore Collections</button>
+                        <button 
+                            className="hero-btn"
+                            onClick={() => history.push('/products')} // ✅ Correct: history.push
+                        >
+                            Shop Now
+                        </button>
+                        <button 
+                            className="hero-btn-outline"
+                            onClick={() => history.push('/products')} // ✅ Correct
+                        >
+                            Explore Collections
+                        </button>
                     </div>
                 </div>
             </header>
@@ -57,7 +70,10 @@ const Home = () => {
                                 Our mission is to make cooking and baking enjoyable for everyone. Whether you're a seasoned
                                 chef or a home cook, we're here to inspire your culinary journey.
                             </p>
-                            <button className="about-btn">
+                            <button 
+                                className="about-btn"
+                                onClick={() => history.push('/contact')} // ✅ Correct
+                            >
                                 Learn More <span className="arrow">→</span>
                             </button>
                         </div>

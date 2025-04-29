@@ -1,8 +1,8 @@
 // src/components/Navbar.js
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Login from "../pages/Login";
 import Logo from "../images/logo.png";
 import "../styles/Navbar.css";
@@ -11,6 +11,8 @@ const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(true);
     const [showLogin, setShowLogin] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
+
+    const history = useHistory(); // added
 
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
@@ -37,6 +39,13 @@ const Navbar = () => {
         setShowLogin(false);
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        setUserInfo(null);
+        history.push("/home"); // or navigate to login page if you prefer
+    };
+
     return (
         <>
             <nav className="navbar-container">
@@ -50,7 +59,7 @@ const Navbar = () => {
                             <li><Link to="/UserPanel">Profile</Link></li>
                             <li>
                                 <div className="tooltip-container">
-                                    <button onClick={handleLoginClick} className="login-icon">
+                                    <button onClick={userInfo ? null : handleLoginClick} className="login-icon">
                                         <FontAwesomeIcon icon={faUser} />
                                         {userInfo && (
                                             <span className="tooltip">
@@ -61,7 +70,16 @@ const Navbar = () => {
                                     </button>
                                 </div>
                             </li>
-                      </ul>
+
+                            {/* Logout button shows only if userInfo exists */}
+                            {userInfo && (
+                                <li>
+                                    <button onClick={handleLogout} className="logout-button">
+                                        <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+                                    </button>
+                                </li>
+                            )}
+                        </ul>
                     </>
                 ) : (
                     <div className="cancel-icon" onClick={() => setShowNavbar(true)}>
